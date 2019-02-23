@@ -18,6 +18,7 @@
     "marked": "0.3.9",
     "mocha": "^5.2.0",
     "mongodb": "^2.2.22",
+    "pm2": "^3.3.1",
     "request": "^2.88.0",
     "underscore": "^1.8.3",
     "validator": "^6.2.1"
