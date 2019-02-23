@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Developer research tools.">
+	<title>checkbox.io</title>
+
+	<link href="../../styles/bootstrap.css" rel="stylesheet">
+	<link href="../../styles/prettify.css" rel="stylesheet">
+	<!--<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>-->
+	<!--<script src="scripts/run_prettify.js"></script>-->
+
+
+	<script src="../../scripts/prettify.js"></script>
+	<script src="http://code.jquery.com/jquery-latest.min.js"
+        type="text/javascript"></script>
+
+	<script src="scripts/view.js"></script>
+
+</head>
+
+<body class="preview" id="top" data-spy="scroll" data-target=".subnav" data-offset="40" onload="prettyPrint()" >
+
+	<div class="navbar">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+				<a class="brand" href="./">checkbox.io</a>
+				<div class="nav-collapse collapse" id="main-menu">
+					<ul class="nav" id="main-menu-left">
+						<li><a>Developers</a></li>
+						<li><a>Researchers</a></li>
+						<li><a>Studies</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+
+
+		<header class="jumbotron subhead" id="overview">
+			<div class="row">
+				<div class="span8">
+		      		<h1>Snippet Summary Study</h1>
+		      		<p class="lead">Code: Short and simple.</p>
+		      		<p>Run by <a href="http://cc.gatech.edu/~vector">Chris Parnin</a></p>
+		    	</div>
+		    </div>
+		    <div class="subnav">
+			    <ul class="nav nav-pills">
+			      <li><a href="#snippets">Task</a></li>
+			      <li><a href="#answer">Answer</a></li>
+			      <li><a href="#answer">Reward</a></li>
+			    </ul>
+			</div>
+		</header>
+
+
+		<section id="snippets">
+		    <h1>Task</h1>
+
+			<p>For <a href="https://github.com/sadit/natix/commit/caf30670f188e2b0db7f34b063a3934638a07cc3">this commit</a>, which code snippet best summarizes the change?  That is, it contains the <em>most important lines</em> in your view.  Comments?
+			</p>
+
+			<button id="btn">Load Snippet</button>
+			<div class="row">
+				<ul id="loadsnippets"></ul>
+			</div>
+
+			<div class="row">
+				<div class="span6">
+					<pre><code class="prettyprint linenums">var hello="world";
+// I am a comment here
+foreach( var string in list )
+{
+    var list = new List<string>();
+    Console.WriteLine("hello");	
+}
+// I am a comment here
+foreach( var string in list )
+{
+    var list = new List<string>();
+    Console.WriteLine("hello");	
+}
+// I am a comment here
+foreach( var string in list )
+{
+    var list = new List<string>();
+    Console.WriteLine("hello");	
+}
+// Loop
+					</code></pre>
+				</div>
+
+				<div class="span6">
+					<pre><code  class="prettyprint linenums">//using (ZipFile zip = ZipFile.Read(path))
+using (ZipInputStream stream = new ZipInputStream(path))
+{
+    ZipEntry e;
+    while( (e = stream.GetNextEntry()) != null )
+    //foreach( ZipEntry e in zip)
+    {
+        if (e.FileName.ToLower().EndsWith(".cs") ||
+            e.FileName.ToLower().EndsWith(".xaml"))
+        {
+            //var ms = new MemoryStream();
+            //e.Extract(ms);
+            var sr = new StreamReader(stream);
+            {
+                //ms.Position = 0;
+                CodeFiles.Add(new CodeFile() { Content = sr.ReadToEnd(), FileName = e.FileName });
+            }
+        }
+    }
+}</code></pre>
+				</div>
+
+
+			</div> <!-- end row -->
+
+		<section id="answer">
+		    <h1>Answer</h1>
+
+			<div class="row">
+				<div class="span8">
+				 <form class="form-horizontal well">
+			        <fieldset>
+					  	<div class="control-group">
+				            <label class="control-label" for="optionsCheckbox">Left Snippet</label>
+				            <div class="controls">
+				              <label class="checkbox">
+				                <input type="checkbox" id="optionsCheckbox" value="option1">
+				                Best summarizes commit.
+				              </label>
+				        	</div>
+				    	</div>
+					  	<div class="control-group">
+				            <label class="control-label" for="optionsCheckbox">Right Snippet</label>
+				            <div class="controls">
+				              <label class="checkbox">
+				                <input type="checkbox" id="optionsCheckbox" value="option2">
+				                Best summarizes commit.
+				              </label>
+				        	</div>
+				    	</div>
+
+					    <div class="control-group">
+				            <label class="control-label" for="input01">Least useful line (Left)</label>
+				            <div class="controls">
+				              <input type="text" class="input-xlarge" id="input01">
+				              <p class="help-block">Input line #</p>
+				            </div>
+					    </div>
+
+					    <div class="control-group">
+				            <label class="control-label" for="input01">Least useful line (Right)</label>
+				            <div class="controls">
+				              <input type="text" class="input-xlarge" id="input01">
+				              <p class="help-block">Input line #</p>
+				            </div>
+					    </div>
+
+
+			        	<div class="control-group">
+			            	<label class="control-label" for="textarea">Comments</label>
+			            	<div class="controls">
+			              		<textarea class="input-xlarge" id="textarea" rows="3"></textarea>
+			            	</div>
+			          	</div>
+
+			    		<div class="form-actions">
+					        <button type="submit" class="btn btn-primary">Contribute</button>
+					        <button type="reset" class="btn">Cancel</button>
+			      		</div>
+			    	</fieldset>
+			    </form>
+				</div>
+			</div>
+
+		</section>
+
+
+		<hr/>
+
+		<div class="alert alert-block">
+	        <a class="close">&times;</a>
+	        <h4 class="alert-heading">TODOS</h4>
+	        <p>Click on code snippet selects checkbox.</p>
+	    </div>
+
+
+	    <footer id="footer">
+			<p class="pull-right"><a href="#top">Back to top</a></p>
+			<div class="links">
+				<span><a href="/about.html">About Us</a></span>
+				<span><a href="/studies.html">Studies</a></span>
+				<span><a href="/grants.html">Research Grants</a></span>
+				<span><a href="/sponsors.html">Be a Sponsor</a></span>
+			</div>
+	    </footer>
+
+
+	</div>  <!-- end container -->
+	
+
+</body>
+</html>

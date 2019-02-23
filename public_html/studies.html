@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Developer research tools.">
+	<title>checkbox.io - studies</title>
+
+	<link href="styles/font.css" rel="stylesheet">
+	<link href="styles/bootstrap.css" rel="stylesheet">
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+	<link href="styles/local.css" rel="stylesheet">
+
+	<!--[if lte IE 9]>
+		<script src="/js/html5.js"></script>
+		<script src="/js/ie-fix.js"></script>
+	<![endif]-->
+
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+
+	<script src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js"></script>
+
+	<script src="/models/StudyListing.js"></script>
+
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+		$.ajaxSetup({ cache: false });
+
+		loadStudies();
+
+		function loadStudies()
+		{
+			var req = $.ajax({ 
+					url: '/api/study/listing'
+				});
+
+			req.done(function (data) {
+
+				var viewModel = {
+				    studies: $(jQuery.map(data.studies, function(study)
+				    	{
+				        	if( study.studyKind == "survey" )
+				        		return new SurveyListing(study);
+
+				        	if( study.studyKind == "dataStudy" )
+				        	{	
+				        		var d = new DataStudyListing(study);
+				        		console.log( d );
+				        		return d;
+				        	}
+				        	return null;
+				    	}))
+				    	.filter( function(elem) {
+				    		return elem.study != "CLOSED";
+				    	})
+				};
+
+				console.log( viewModel );
+
+				ko.applyBindings(viewModel);
+
+				$("button[data-href]").click( function() {
+        			//location.href = $(this).attr("data-href");
+        			window.open($(this).attr("data-href"), "_blank");
+    			});
+
+			});
+
+			// callback handler that will be called on failure
+			req.fail(function (jqXHR, textStatus, errorThrown){
+				// log the error to the console
+    			console.error("The following error occured: " + textStatus, errorThrown );
+
+				ko.applyBindings({studies:[]});
+			});			
+		}
+
+		});
+	</script>
+
+</head>
+
+<body>
+	<div class="navbar">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+				<a class="brand" href="./"><i class="icon-check-empty icon-pint"></i> checkbox.io</a>
+				<div class="nav-collapse collapse" id="main-menu">
+					<ul class="nav" id="main-menu-left">
+						<li><a href="developers.html">Developers</a></li>
+						<li><a href="researchers.html">Researchers</a></li>
+						<li><a href="studies.html">Studies</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<section id="studies">
+
+			<div id="dynamicStudies" data-bind="foreach: studies">
+				<div class="row">
+					<div class="span8">
+						<h3><i data-bind="css:studyIconClass"></i> <span data-bind="text: name"></span></h3>
+						<p data-bind="text: description"></p>
+						<div class="award">
+							<div data-bind="if: isAwarded">
+								<div class="alert alert-warning">
+									<span>Update: Participants have been awarded! Study is still open for contribution.
+									</span>
+								</div>
+							</div>							
+							<p data-bind="if: awards.length > 0"><i class="icon-trophy"></i> Reward:</p>
+							<ul data-bind="foreach: awards">
+								<li class="award" >* <span data-bind="text: description"></span></li>
+							</ul>
+							<p></p>
+							<div data-bind="foreach: awards">
+								<span data-bind="if: awardImg ">
+									<img data-bind="attr: {src: awardImg}"></img>
+								</span>							
+							</div>
+						</div>
+						<div>
+
+						</div>
+					</div>
+					<div class="span4">
+						<a class="status" data-bind="attr: {href:link}">STATUS: <span data-bind="text: status"></span></a>
+						<p><span class="backers" data-bind="text: votes"></span>
+							<br/>participants out of <span data-bind="text: goal"></span> goal.
+						</p>
+						<div data-bind="if: canParticipate">
+							<button class="btn btn-info" data-bind="attr: {'data-href':link}">Participate</button>
+							<div class="social">
+								<ol class="css3">
+									<li class="twitter">
+										<a target="_blank" data-bind="attr: {'href':twitterShare}"><strong>Twitter</strong></a>
+									</li>
+									<li class="facebook">
+										<a target="_blank"  data-bind="attr: {'href':facebookShare}"><strong>Facebook</strong></a>
+									</li>
+								</ol>
+							</div>
+						</div>
+						<div data-bind="if: hasResults">
+							<div class="panel panel-default">
+						  		<div class="panel-heading">Results</div>
+						  		<div class="panel-body">
+									<ol>
+										<li>
+											<a target="_blank" data-bind="attr: {'href':results.data}"><strong>Data</strong></a>
+										</li>
+										<li>
+											<a target="_blank"  data-bind="attr: {'href':results.report}"><strong>Report</strong></a>
+										</li>
+									</ol>
+						  		</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<hr/>
+			</div>
+
+			<!-- static studies -->
+			<div class="row">
+				<div class="span8">
+					<h3><i class="icon-chevron-left"></i><i class="icon-chevron-right"></i> Code Snippet Summarization Study</h3>
+					<p>This is an invited study.  If you are interested in participating, you may be eligible if you have made commits on <a href="github.com">github</a> to a C# project. Please email study coordinator <a href="mailto:chris.parnin@gatech.edu?Subject=Github%20study">Chris Parnin</a> to be invited.
+					</p>
+					<div class="award"><p><i class="icon-trophy"></i> Reward: Github store swag, tiered based on completed tasks ($10 to $25)</p>
+						<p><img src="/media/octocat-micro.png"/></p>
+					</div>
+				</div>
+				<div class="span4 status">
+					<a href="">STATUS: PENDING</a>
+				</div>
+			</div>
+			<hr/>
+
+
+		</section>
+	</div>
+	<hr/>
+
+    <footer id="footer">
+    	<div class="container">
+			<p class="pull-right"><a href="#top">Back to top</a></p>
+			<div class="links">
+				<span><a href="/about.html">About Us</a></span>
+				<span><a href="/studies.html">Studies</a></span>
+				<span><a href="/grants.html">Research Grants</a></span>
+				<span><a href="/sponsors.html">Be a Sponsor</a></span>
+			</div>
+		</div>
+    </footer>
+
+</body>
+</html>

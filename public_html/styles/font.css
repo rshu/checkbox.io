@@ -1,0 +1,61 @@
+/* 
+ * Chrome has a bug where the order in which fonts are included can affect how they're displayed
+ * Fonts can appear 'jagged' if SVG is the last to be included
+ * Most @font-face generators will put this at the end, move it to before the .woff files to fix jagged font display issues in Chrome.
+ * 
+ * Anyway, onwards with the fonts! Mmm, lovely fonts.
+  
+ * http://blog.maffyoo.co.uk/google-chrome-svg-and-font-face/
+ */
+
+@font-face {
+    font-family: 'LoraRegular';
+    src: url('../font/lora/Lora-Regular-webfont.eot');
+    src: url('../font/lora/Lora-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/lora/Lora-Regular-webfont.svg#LoraRegular') format('svg'),
+         url('../font/lora/Lora-Regular-webfont.woff') format('woff'),
+         url('../font/lora/Lora-Regular-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'LoraItalic';
+    src: url('../font/lora/Lora-Italic-webfont.eot');
+    src: url('../font/lora/Lora-Italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/lora/Lora-Italic-webfont.svg#LoraItalic') format('svg'),
+         url('../font/lora/Lora-Italic-webfont.woff') format('woff'),
+         url('../font/lora/Lora-Italic-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'LoraBold';
+    src: url('../font/lora/Lora-Bold-webfont.eot');
+    src: url('../font/lora/Lora-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/lora/Lora-Bold-webfont.svg#LoraBold') format('svg'),
+         url('../font/lora/Lora-Bold-webfont.woff') format('woff'),
+         url('../font/lora/Lora-Bold-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'LoraBoldItalic';
+    src: url('../font/lora/Lora-BoldItalic-webfont.eot');
+    src: url('../font/lora/Lora-BoldItalic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../font/lora/Lora-BoldItalic-webfont.svg#LoraBoldItalic') format('svg'),
+         url('../font/lora/Lora-BoldItalic-webfont.woff') format('woff'),
+         url('../font/lora/Lora-BoldItalic-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+  
+@font-face {font-family: 'MuseoSlab-500';src: url('../font/museo-slab/2793FF_0_0.eot');src: url('../font/museo-slab/2793FF_0_0.eot?#iefix') format('embedded-opentype'),url('../font/museo-slab/2793FF_0_0.svg#wf') format('svg'),url('../font/museo-slab/2793FF_0_0.woff') format('woff'),url('../font/museo-slab/2793FF_0_0.ttf') format('truetype');}
+ 

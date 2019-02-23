@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Developer research tools.">
+	<title>checkbox.io</title>
+
+	<link href="/styles/font.css" rel="stylesheet">
+	<link href="/styles/bootstrap.css" rel="stylesheet">
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+	<link href="/styles/local.css" rel="stylesheet">
+
+	<!--[if lte IE 9]>
+		<script src="/js/html5.js"></script>
+		<script src="/js/ie-fix.js"></script>
+	<![endif]-->
+
+
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+
+	<script src="/scripts/purl.js"></script>
+	<script src="/scripts/fingerprint.js"></script>
+
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+			var token = $.url().param("token");
+
+			$("#winnerArea").hide();
+
+			$("#assignWinnerLink").click(function()
+			{
+				selectWinner(token);
+			});
+
+			$("#studyStatusLink").click(function()
+			{
+				closeStudy(token);
+			});
+
+			$("#notifyWinner").click(function()
+			{
+				notifyWinner();
+			});
+
+			loadStudy(token, function(studyId)
+			{
+				loadStats(studyId);
+			});
+
+			function loadStudy(token, onReady)
+			{
+				var req = $.ajax({url: '/api/study/admin/'+token});
+
+				req.done(function (data) {
+					//console.log(data.name);
+					var studyId = data._id;
+
+					$("#title").text( data.name );
+					$("#researcherName").text( data.researcherName);
+					$("#researcherName").attr({href:"mailto:"+data.contact});
+
+					$("#public").attr({href: data.publicLink})
+					$("#public").text(data.publicLink);
+
+					$("#admin").attr({href: data.adminLink});
+					$("#admin").text(data.adminLink);
+
+					$("#downloadlink").attr({href: '/api/study/admin/download/' + token });
+
+					console.log( data.goal );
+					$("#goal").text( data.goal );
+
+					onReady(studyId);
+				});
+				// callback handler that will be called on failure
+				req.fail(function (jqXHR, textStatus, errorThrown){
+					// log the error to the console
+					console.error("The following error occured: " + textStatus, errorThrown );
+
+				});
+			}
+
+			function loadStats(studyId, onReady)
+			{
+				var req = $.ajax({url: '/api/study/status/'+studyId});
+				req.done(function (data) {
+
+					$("#studyVotes").text( data.votes );
+				});
+				req.fail(function (jqXHR, textStatus, errorThrown){
+					// log the error to the console
+					console.error("The following error occured: " + textStatus, errorThrown );
+				});
+			}
+
+			function selectWinner(token, onReady)
+			{
+				var req = $.ajax({url: '/api/study/admin/assign/'+token});
+				req.done(function (data) {
+
+					$("#winnerEmail").text( data.winner );
+					$("#winnerArea").show();
+
+				});
+				req.fail(function (jqXHR, textStatus, errorThrown){
+					// log the error to the console
+					console.error("The following error occured: " + textStatus, errorThrown );
+				});
+			}
+
+			bootstrap_alert = function() {};
+			bootstrap_alert.warning = function(message) {
+            	$('#alert_placeholder').html('<div class="alert"><a class="close" data-dismiss="alert">×</a><span>'+message+'</span></div>');
+        	};
+
+			function notifyWinner(token, onReady)
+			{
+				console.log( $("#winnerEmail").text() );	
+				var req = $.post('/api/study/admin/notify/',
+					{
+						token:token, email: $("#winnerEmail").text(), kind: "AMZN"
+					});
+
+				req.done(function (data) 
+				{
+					if( data.error )
+					{
+						bootstrap_alert.warning("Error notifying participant:" + JSON.stringify( data.error ));
+					}
+					else
+					{
+						var message = data.message;
+						if( data.message.text )
+							message = data.message.text;
+						bootstrap_alert.warning("Sent:" + message);
+					}
+					console.log(data.message);
+				});
+				req.fail(function (jqXHR, textStatus, errorThrown){
+					// log the error to the console
+					bootstrap_alert.warning("Error notifying participant:" + textStatus);
+					console.error("The following error occured: " + textStatus, errorThrown );
+				});
+			}
+
+			function openStudy(token, onReady)
+			{
+				var req = $.post('/api/study/admin/open/',{token:token});
+
+				req.done(function (data) {
+					console.log("re-opened");
+					$("#studyStatusLink").text( "Close Study" );
+					$("#studyStatusLink").off('click').on('click', function()
+					{
+						closeStudy(token);
+					});
+				});
+				req.fail(function (jqXHR, textStatus, errorThrown){
+					// log the error to the console
+					console.error("The following error occured: " + textStatus, errorThrown );
+				});
+			}
+
+			function closeStudy(token, onReady)
+			{
+				var req = $.post('/api/study/admin/close/',{token:token});
+
+				req.done(function (data) {
+					console.log("closed");
+
+					$("#studyStatusLink").text( "Reopen Study" );
+					$("#studyStatusLink").off('click').on('click', function()
+					{
+						openStudy(token);
+					});
+				});
+				req.fail(function (jqXHR, textStatus, errorThrown){
+					// log the error to the console
+					console.error("The following error occured: " + textStatus, errorThrown );
+				});
+			}
+		});
+	</script>
+
+</head>
+
+<body>
+	<div class="navbar">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+				<a class="brand" href="/"><i class="icon-check-empty icon-pint"></i> checkbox.io</a>
+				<div class="nav-collapse collapse" id="main-menu">
+					<ul class="nav" id="main-menu-left">
+						<li><a href="/developers.html">Developers</a></li>
+						<li><a href="/researchers.html">Researchers</a></li>
+						<li><a href="/studies.html">Studies</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<header class="jumbotron subhead" id="overview">
+			<div class="row">
+				<div class="span12">
+		      		<h1 id="title">Loading...</h1>
+		      		<p>Run by <a id="researcherName" href=""></a></p>
+		    	</div>
+		    </div>
+		    <div class="subnav">
+			    <ul class="nav nav-pills">
+			      <li><a href="#studySection">Study</a></li>
+			      <li><a href="#actionsSection">Actions</a></li>
+			    </ul>
+			</div>
+		</header>
+
+		<section id="studySection">
+			<div class="row">
+				<div class="span12">
+					<h2>Status</h2>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="span3">
+					<p><strong>Public link:</strong></p>
+				</div>
+				<div class="span6">
+					<a id="public" href=""></a>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="span3">
+					<p><strong>Admin link:</strong></p>
+				</div>
+				<div class="span9">
+					<a id="admin" href=""></a>
+				</div>
+			</div>
+
+			<p/>
+
+			<div class="row">
+				<div class="span3">
+					<p><strong>Participant answer count:</strong></p>
+				</div>
+				<div class="span6">
+					<code id="studyVotes"></code>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="span3">
+					<p><strong>Participant goal:</strong></p>
+				</div>
+				<div class="span6">
+					<code id="goal">100</code>
+				</div>
+			</div>
+
+		</section>
+
+		<section id="actionsSection">
+			<div class="row">
+				<div class="span12">
+					<h2>Actions</h2>
+				</div>
+				<div class="span6">
+					<p><a id="downloadlink" href="">Download Data</a></p>
+					<p><a id="assignWinnerLink" href="#actionsSection">Assign Participant Prize</a></p>
+					<p><a id="studyStatusLink" href="#actionsSection">Close Study</a></p>
+				</div>
+				<div id="winnerArea">
+					<p>The following participant has been selected for a prize: <code id='winnerEmail'></code></p>
+					<p><button id="notifyWinner">Confirm and Notify Winner</button></p>
+				</div>
+				<div id = "alert_placeholder"></div>
+			</div>
+		</section>
+
+	</div>
+	<hr/>
+
+    <footer id="footer">
+    	<div class="container">
+			<p class="pull-right"><a href="#top">Back to top</a></p>
+			<div class="links">
+				<span><a href="/about.html">About Us</a></span>
+				<span><a href="/studies.html">Studies</a></span>
+				<span><a href="/grants.html">Research Grants</a></span>
+				<span><a href="/sponsors.html">Be a Sponsor</a></span>
+			</div>
+		</div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Developer research tools.">
+	<title>checkbox.io</title>
+
+	<link href="styles/font.css" rel="stylesheet">
+	<link href="styles/bootstrap.css" rel="stylesheet">
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+	<link href="styles/local.css" rel="stylesheet">
+	<link href="/styles/prettify.css" rel="stylesheet">
+
+	<!--[if lte IE 9]>
+		<script src="/js/html5.js"></script>
+		<script src="/js/ie-fix.js"></script>
+	<![endif]-->
+
+
+	<script src="/scripts/prettify.js"></script>
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+	<script src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js"></script>
+
+	<script src="./models/studies.js"></script>
+
+	<script src="./js/researchers.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+
+			//var dataStudy = $("#template").clone();
+			//dataStudy.id = "";
+			//dataStudy.attr("data-bind", "with: dataStudyModel");
+			//dataStudy.removeClass("hide");
+			/*dataStudy.find('div > input').each( function(index) {
+				var input = $(this);
+				input.attr("data-bind", "value: " + this.id);
+			});
+
+			var awardList = dataStudy.find("#awardList");
+			awardList.id = "";
+			awardList.attr("data-bind", "foreach: awards");
+			*/
+
+			//$("#data-upload-design form").append( dataStudy );
+
+
+			SetupEvents();
+
+
+
+		});
+
+
+	</script>
+
+</head>
+
+<body>
+
+	<script type="text/html" id="basic-template">
+		<div>
+			<div>
+		        <label for="name">Study Name:</label>
+		        <input class="span9" type="text" data-bind="value:name"/>
+		    </div>
+		    <div>
+		        <label for="name">Researcher Name:</label>
+		        <input type="text" data-bind="value:researcherName" />
+		    </div>
+		    <div>
+		        <label for="name">Email Contact:</label>
+		        <input type="text" data-bind="value:contact"/>
+		    </div>
+		    <div>
+		        <label for="name">Invite Code:</label>
+		        <input type="text" data-bind="value:invitecode" />
+		    </div>
+
+		    <div>
+		        <label for="name">Expected Number of Participants:</label>
+		        <input type="text" data-bind="value:goal" />
+		    </div>
+
+		    <div class="controls">
+		    	<label for="description">Description:</label>
+	        	<textarea class="span9" data-bind="value:description" rows="3"></textarea>
+		    </div>
+
+
+		    <div class="well">
+			    <fieldset>
+			    	<legend>Reward</legend>
+
+			    	<div class="span6">
+					    <div class="controls">
+					    	<label for="name">Award:</label>
+				        	<select data-bind="options: awardOptions, value: awardKind">
+				        	</select>
+					    </div>
+
+					    <div class="control-group">
+							<label class="control-label" for="awardDescription">Award Description:</label>
+							<div class="controls">
+								<div class="input-append">
+						        	<input class='span5'  type="text" data-bind="value:awardDescription" size="16">
+									<button class="btn" type="button" id="addRewardBtn" data-bind="click: addAward">Add</button>
+							    </div>
+						    </div>
+			 				<p class="help-block">You may give multiple rewards.</p>
+						</div>
+					</div>
+
+					<div class="span5 awardColor">
+				    	<ul data-bind="foreach: awards">
+				    		<li><span data-bind="text:kind"></span> - <span data-bind="text:description"></span> <i class="icon-remove icon-btn" data-bind="click: $parent.removeAward"></i></li>
+				    	</ul>
+					</div>
+
+				</fieldset>
+			</div>
+		</div>
+	</script>
+
+	<script type="text/template" id="survey-default">
+{NumberQuestions:true}
+-----------
+Start with header for global options:
+
+    {NumberQuestions:true}
+    -----------
+
+### Multiple Choice Question (Check all that apply)
+
+A *description* for question.  
+Questions are created with headers (level 3) `### Multiple Choice Question (Check all that apply)`.
+
+* Choice A
+* Choice B
+* Choice C
+
+### Single Choice Question
+
+Markdown is great for including questions about code snippets:
+```
+$(document).ready( function()
+{
+    ko.applyBindings(new TaskViewModel());
+	var converter = new Markdown.Converter();
+	document.write(converter.makeHtml("**I am bold**"));
+});
+```
+
+1. Choice
+2. Choice
+3. Choice
+
+### Ranking/Rating Table
+
+The first column has the description.  [Use github flavored markdown for table formatting](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#wiki-tables).
+
+|                       | Do not Want | Sometimes | Always |
+| --------------------- | ----------- | --------- | ------ | 
+| Search terms used in IDE	                      |  |  |  |
+| Code that did not work out and was deleted.     |  |  |  |
+| Time spent on particular edits	              |  |  |  |
+| Code and files viewed	                          |  |  |  |
+
+### Multichoice table
+
+You can leave the other columns blank, or `[]` if multi choice.
+
+|                 | Read  | Write  |
+| ----------------| ----- | ------ |
+| Blog posts 	  |   []  |  []    |
+| Stack Overflow  |   []  |  []    |
+| Twitter         |   []  |  []    |
+| Github          |   []  |  []    |
+
+### Text multiple line answer
+Please go into **great** detail, with `> {rows:5}`
+
+&gt; {rows:5}
+
+### Text single line answer
+
+You can enter in `> {rows:1}` or `> {}`.
+
+&gt; {}
+
+-----------------------
+
+#### Other information
+
+You can use [json5](https://github.com/aseemk/json5).  _i.e._ `{rows:5}` without quotes `{"rows":5}`.
+
+The recommended method of creating surveys is to edit it in a markdown editor, and then paste it here when you are done.
+This makes it easier to save and reuse.
+
+This is a *beta* product, so please give feedback about feature design and requests!	
+	</script>
+
+<script type="text/template" id="datastudy-default">
+{NumberQuestions:true}
+-----------
+
+### Upload File
+> {upload:true}
+
+### Ask other questions
+> {rows:3}
+</script>
+
+	<div class="navbar">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+				<a class="brand" href="./"><i class="icon-check-empty icon-pint"></i> checkbox.io</a>
+				<div class="nav-collapse collapse" id="main-menu">
+					<ul class="nav" id="main-menu-left">
+						<li><a href="developers.html">Developers</a></li>
+						<li><a href="researchers.html">Researchers</a></li>
+						<li><a href="studies.html">Studies</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+
+		<section id="designstudy">
+			<div class="row">
+				<h3>Study type</h3>
+				<div class="span4 study" id="survey-btn">
+					<div class="rounded-bottom-corners drop-shadow rotate">
+						<h4><i class="icon-check-empty"></i> Survey</h4>
+					</div>
+				</div>
+				<div class="span4 study">
+					<div class="rounded-bottom-corners drop-shadow rotate">
+						<div class="beta-banner-relative beta-disclaimer">Coming</div>						
+						<h4><i class="icon-chevron-left"></i><i class="icon-chevron-right"></i>  A/B compare</h4>
+					</div>
+				</div>
+				<div class="span4 study">
+					<div class="rounded-bottom-corners drop-shadow rotate">
+						<div class="beta-banner-relative beta-disclaimer">Coming</div>						
+						<h4><i class="icon-tag"></i> Code annotation</h4>
+					</div>
+				</div>
+				<div class="span4 study" id="data-upload-btn">
+					<div class="rounded-bottom-corners drop-shadow rotate">
+						<h4><i class="icon-hdd"></i> Data upload</h4>
+					</div>
+				</div>
+
+				<div class="span4 study">
+					<div class="rounded-bottom-corners drop-shadow rotate">
+						<div class="beta-banner-relative beta-disclaimer">Coming</div>
+						<h4><i class="icon-laptop"></i> Offline</h4>
+					</div>
+				</div>
+				<div class="span4 study">
+					<div class="rounded-bottom-corners drop-shadow rotate">
+						<div class="beta-banner-relative beta-disclaimer">Coming</div>						
+						<h4><i class="icon-gears"></i> Custom</h4>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+
+	<hr/>
+
+	<div id = "alert_placeholder"></div>
+
+	<div id="studyArea" class="container">
+
+		<h4><i id="study-icon" class="icon-check-empty"></i> <span id="study-name">Survey</span></h4>
+		<p id="study-byline">Create a survey study.</p>
+
+		<section id="data-upload">
+			<div class="row">
+				<div class="span12">
+					
+					<ul class="nav nav-tabs">
+						<li class="active"><a href="#data-upload-design" data-toggle="tab">Design</a></li>
+						<li id="data-upload-previewtab"><a href="#data-upload-preview" data-toggle="tab">Preview</a></li>
+					</ul>
+					<div class="tab-content">
+						<div class="tab-pane fade active in" id="data-upload-design">
+							<form>
+
+							    <div data-bind="with: dataStudyModel">				    	
+							        <label for="markdown">Markdown:</label>
+							        <textarea class="field span9" rows="15" data-bind="value:markdown">
+
+							        </textarea>
+							    </div>
+
+								<div data-bind="template: {name: 'basic-template', data: dataStudyModel}"></div>
+							</form>
+							<button id="createDataStudyBtn">Create</button>				
+						</div>
+						<div class="tab-pane fade active in" id="data-upload-preview">
+							Preview...
+						</div>
+
+					</div>
+
+
+				</div>
+			</div>			
+		</section>
+
+		<section id="survey">
+			<div class="row">
+				<div class="span12">
+
+					<ul class="nav nav-tabs">
+						<li class="active"><a href="#survey-design" data-toggle="tab">Design</a></li>
+						<li id="survey-previewtab"><a href="#survey-preview" data-toggle="tab">Preview</a></li>
+					</ul>
+					<div class="tab-content">
+						<div class="tab-pane fade active in" id="survey-design" >
+							<form id="surveyform">		
+							    <div data-bind="with: surveyModel">				    	
+							        <label for="markdown">Markdown:</label>
+							        <textarea class="field span9" rows="15" data-bind="value:markdown">
+
+							        </textarea>
+							    </div>
+
+								<div data-bind="template: {name: 'basic-template', data: surveyModel}"></div>													    
+							</form>
+							<button id="createSurveyBtn">Create</button>
+		         		</div>
+
+		         		<div class="tab-pane fade in" id="survey-preview">
+			                <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
+		         		</div>
+		         	</div>
+				</div>
+			</div>
+		</section>
+	</div>
+
+	<hr/>
+
+    <footer id="footer">
+    	<div class="container">
+			<p class="pull-right"><a href="#top">Back to top</a></p>
+			<div class="links">
+				<span><a href="/about.html">About Us</a></span>
+				<span><a href="/studies.html">Studies</a></span>
+				<span><a href="/grants.html">Research Grants</a></span>
+				<span><a href="/sponsors.html">Be a Sponsor</a></span>
+			</div>
+		</div>
+    </footer>
+
+</body>
+</html>

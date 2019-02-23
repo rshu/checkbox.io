@@ -1,0 +1,33 @@
+
+.pln{color:#000}
+@media screen{
+.str{color:#D14}
+.kwd{color:#008}
+.com{color:#93a1a1}
+.typ{color:teal}
+.lit{color:#195f91}
+.pun,.opn,.clo{color:#660}.tag{color:#008}.atn{color:#606}
+.atv{color:#D14}.dec,.var{color:#606}
+.fun{color:red}
+}
+@media print,projection{
+.str{color:#D14}
+.kwd{color:#006;font-weight:bold}.com{color:#93a1a1;font-style:italic}
+.typ{color:teal;font-weight:bold}.lit{color:#195f91}.pun,.opn,.clo{color:#440}
+.tag{color:#006;font-weight:bold}.atn{color:#404}.atv{color:#D14}
+}
+
+pre.prettyprint{padding:2px;border:1px solid #888}
+ol.linenums{margin-top:0;margin-bottom:0}
+li.L0,li.L1,li.L2,li.L3,li.L5,li.L6,li.L7,li.L8
+li.L1,li.L3,li.L5,li.L7,li.L9{background:#eee}
+
+/*.com { color: #93a1a1; }
+.lit { color: #195f91; }
+.pun, .opn, .clo { color: #93a1a1; }
+.fun { color: #dc322f; }
+.str, .atv { color: ; }
+.kwd, .prettyprint .tag { color: #1e347b; }
+.typ, .atn, .dec, .var { color: teal; }
+.pln { color: #48484c; }
+*/

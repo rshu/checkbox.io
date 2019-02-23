@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Developer research tools.">
+	<title>checkbox.io</title>
+
+	<link href="/styles/font.css" rel="stylesheet">
+	<link href="/styles/bootstrap.css" rel="stylesheet">
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+	<link href="/styles/local.css" rel="stylesheet">
+
+	<link href="/styles/prettify.css" rel="stylesheet">
+
+
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+
+	<script src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js"></script>
+
+
+	<script src="/scripts/purl.js"></script>
+	<script src="/scripts/fingerprint.js"></script>
+	<script src="/scripts/prettify.js"></script>
+
+	<script src="surveys.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+			$("#thankYou").hide();
+			$("#closedSurvey").hide();
+			$("#rewardDescription").hide();
+			
+			var surveyId = $.url().param("id");
+			var fingerprint = new Fingerprint().get();
+
+			// hide until ready
+			$("#voteBtn").hide();
+
+			loadStatus(fingerprint, surveyId, function(status) {
+				if( status == "ok" )
+				{					
+					loadSurvey(surveyId, function(loaded)
+					{
+						// Everything is loaded!
+						if( loaded )
+						{
+							$("code:not('.nohighlight')").addClass("prettyprint");
+							prettyPrint();
+
+							$("#voteBtn").show();
+
+							$("#voteBtn").click(function()
+							{
+								var answers = gatherAnswers();
+								deliverSurvey(answers, fingerprint, surveyId);
+								console.log("voted");
+								//console.log(answers);
+							});
+						}
+					});
+				}
+				else
+				{
+					showThankYou();
+				}
+			});
+
+		});
+	</script>
+
+</head>
+
+<body>
+	<div class="navbar">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+				<a class="brand" href="/"><i class="icon-check-empty icon-pint"></i> checkbox.io</a>
+				<div class="nav-collapse collapse" id="main-menu">
+					<ul class="nav" id="main-menu-left">
+						<li><a href="/developers.html">Developers</a></li>
+						<li><a href="/researchers.html">Researchers</a></li>
+						<li><a href="/studies.html">Studies</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<header class="jumbotron subhead" id="overview">
+			<div class="row">
+				<div class="span8">
+		      		<h1 id="surveyTitle">Loading...</h1>
+		      		<p>Run by <a id="owner" href=""></a></p>
+		    	</div>
+		    </div>
+		    <div class="subnav">
+			    <ul class="nav nav-pills">
+			      <li><a href="#surveySection">Survey</a></li>
+			      <li><a href="#rewardSection">Reward</a></li>
+			    </ul>
+			</div>
+		</header>
+
+		<section id="rewardDescription">
+			<div class="row">
+				<div class="span9">
+					<div class="award">
+						<p><i class="icon-trophy"></i> Reward: <span data-bind="text: awardDescription"></span></p>
+						<p data-bind="if: awardImg "><img data-bind="attr: {src: awardImg}"></img></p>
+					</div>
+				</div>
+			</div>
+
+			<hr/>
+
+		</section>
+
+
+		<section id="surveySection">
+			<div class="row">
+				<div id="surveyarea" class="span12">
+
+				</div>
+			</div>
+		</section>
+
+		<section id="rewardSection">
+			<div class="row">
+				<div class="span12">
+					<h1>Reward for Contribution</h1>
+					<p>To be eligible for survey reward, please provide additional information:</p>
+					<form id="surveyform" >
+					    <div class="control-group">
+					        <div class="controls">
+					        	<input type="text" id="voterEmail" placeholder="Email"/>
+						        <label class="checkbox" for="pleaseContact">Let me know about future studies:<input id="pleaseContact" type="checkbox" checked="checked" /></label>
+					        </div>
+					    </div>
+					</form>
+				</div>
+				<div class="span12">
+					<button id="voteBtn">Submit Answers to Researcher</button>				
+				</div>
+			</div>
+		</section>
+		<section id="thankYou">
+			<div class="row">
+				<div class="span6">
+					<div class="alert alert-info">
+        				<!--<a class="close">×</a>-->
+        				<strong>Thank you!</strong> Your contribution to science has been noted!
+      				</div>
+      				<p>Please consider other <a href="/studies.html">studies</a> you can contribute to.</p>
+				</div>
+			</div>
+		</section>
+
+		<section id="closedSurvey">
+			<div class="row">
+				<div class="span6">
+					<div class="alert alert-info">
+        				<!--<a class="close">×</a>-->
+        				<strong>Closed Survey!</strong> The researcher has closed this survey.
+      				</div>
+      				<p>Please consider other <a href="/studies.html">studies</a> you can contribute to.</p>
+				</div>
+			</div>
+		</section>
+
+
+	</div>
+	<hr/>
+
+    <footer id="footer">
+    	<div class="container">
+			<p class="pull-right"><a href="#top">Back to top</a></p>
+			<div class="links">
+				<span><a href="/about.html">About Us</a></span>
+				<span><a href="/studies.html">Studies</a></span>
+				<span><a href="/grants.html">Research Grants</a></span>
+				<span><a href="/sponsors.html">Be a Sponsor</a></span>
+			</div>
+		</div>
+    </footer>
+
+</body>
+</html>

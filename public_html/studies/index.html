@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Developer research tools.">
+	<title>checkbox.io</title>
+
+	<!--[if lte IE 9]>
+		<script src="/js/html5.js"></script>
+		<script src="/js/ie-fix.js"></script>
+	<![endif]-->
+
+	<link href="/styles/font.css" rel="stylesheet">
+	<link href="/styles/bootstrap.css" rel="stylesheet">
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+	<link href="/styles/local.css" rel="stylesheet">
+
+	<link href="/styles/prettify.css" rel="stylesheet">
+
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+
+	<script src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-2.2.1.js"></script>
+
+
+	<script src="/scripts/purl.js"></script>
+	<script src="/scripts/fingerprint.js"></script>
+	<script src="/scripts/prettify.js"></script>
+
+	<script src="study.js"></script>
+
+	<script type="text/javascript">
+
+		$.ajaxSetup({ cache: false });
+
+		var curPageNumber = 0;
+
+		$(document).ready(function() {
+
+			$("#thankYou").hide();
+			$("#closedStudy").hide();
+			$("#rewardDescription").hide();
+			$("#showCode").hide();
+
+			
+			var id = $.url().param("id");
+			var fingerprint = new Fingerprint().get();
+
+			// hide until ready
+			$("#voteBtn").hide();
+
+			loadStatus(fingerprint, id, function(status) {
+				if( status == "ok" )
+				{					
+					loadStudy(id, function(loaded, showCodeOnComplete)
+					{
+						// Everything is loaded!
+						if( loaded )
+						{
+							$("code:not('.nohighlight')").addClass("prettyprint");
+							prettyPrint();
+
+							$("#voteBtn").show();
+
+							$("#voteBtn").click(function()
+							{
+								var answers = gatherAnswers();
+								deliverSurvey(answers, fingerprint, id, showCodeOnComplete);
+								console.log("voted");
+								//console.log(answers);
+							});
+
+							var $pages = $('div[data-page]');
+
+							$.each($pages, function(index, value) 
+							{
+								$(value).hide();
+							});
+
+							if( $pages.length > 0 )
+							{
+								$($pages[0]).show();
+							}
+
+							if( $pages.length == 1 )
+							{
+								$('#pageNavigation').hide();
+							}
+
+							if( $pages.length > 1 )
+							{
+								$('#rewardSection').hide();
+								$('#prevButton').hide();
+								$('#prevButton').parent('div').hide();
+								$('#nextButton').parent('div').removeClass('offset1');
+							}
+
+							$('#prevButton').click(function()
+							{
+								if( curPageNumber > 0 )
+								{
+									$($pages[curPageNumber]).hide();
+									curPageNumber--;
+									$($pages[curPageNumber]).show();
+									$("html, body").animate({ scrollTop: 0 }, "slow");
+									$('#nextButton').show();
+									$('#rewardSection').hide();											
+								}
+
+								if( curPageNumber == 0 )
+								{
+									$('#prevButton').hide();
+									$('#prevButton').parent('div').hide();
+									$('#nextButton').parent('div').removeClass('offset1');
+								}
+							});
+
+							$('#nextButton').click(function()
+							{
+								if( curPageNumber < $pages.length - 1 )
+								{
+									$($pages[curPageNumber]).hide();
+									curPageNumber++;
+									$($pages[curPageNumber]).show();
+									$("html, body").animate({ scrollTop: 0 }, "slow");					
+									$('#prevButton').show();
+									$('#prevButton').parent('div').show();
+									$('#nextButton').parent('div').addClass('offset1');
+								}
+
+								if( curPageNumber == $pages.length - 1 )
+								{
+									$('#rewardSection').show();
+									$('#nextButton').hide();
+								}
+							});
+
+						}
+					});
+				}
+				else if( status == "closed")
+				{
+					showClosedStudy();
+				}
+				else
+				{
+					showThankYou(fingerprint,true);
+					$('#prevButton').hide();
+					$('#nextButton').hide();
+					$('#prevButton').parent('div').hide();
+					$('#nextButton').parent('div').removeClass('offset1');
+				}
+			});
+
+		});
+
+	</script>
+
+</head>
+
+<body>
+	<div class="navbar">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+				<a class="brand" href="/"><i class="icon-check-empty icon-pint"></i> checkbox.io</a>
+				<div class="nav-collapse collapse" id="main-menu">
+					<ul class="nav" id="main-menu-left">
+						<li><a href="/developers.html">Developers</a></li>
+						<li><a href="/researchers.html">Researchers</a></li>
+						<li><a href="/studies.html">Studies</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<header class="jumbotron subhead" id="overview">
+			<div class="row">
+				<div class="span8">
+		      		<h1 id="surveyTitle">Loading...</h1>
+		      		<p>Run by <a id="researcherName" href=""></a></p>
+		    	</div>
+		    </div>
+		    <div class="subnav">
+			    <ul class="nav nav-pills">
+			      <li><a href="#surveySection">Survey</a></li>
+			      <li data-bind="if: hasAward "><a href="#rewardSection">Reward</a></li>
+			    </ul>
+			</div>
+		</header>
+
+		<section id="rewardDescription">
+			<div data-bind="if: hasAward ">
+				<div class="row" data-bind="foreach: awards">
+					<div class="span9">
+						<div class="award">
+							<p><i class="icon-trophy"></i> Reward: <span data-bind="text: awardDescription"></span></p>
+						</div>
+					</div>
+				</div>
+				<div class="row award">
+					<div class="span9" data-bind="foreach: awards">
+						<span data-bind="if: awardImg ">
+							<img data-bind="attr: {src: awardImg}"></img>
+						</span>
+					</div>
+				</div>
+				<hr/>
+			</div>
+		</section>
+
+
+		<section id="surveySection">
+			<div class="row">
+				<div id="studyarea" class="span12">
+
+				</div>
+			</div>
+		</section>
+
+		<section id="pageNavigation">
+			<div class="row top-buffer">
+				<div class="span1">
+					<button class="btn"id="prevButton">Prev</button>
+				</div>
+				<div class="span1 offset1">
+					<button class="btn btn-info" id="nextButton">Next</button>
+				</div>
+			</div>
+		</section>
+
+		<section id="rewardSection"> 
+			<div class="row top-buffer">
+				<div class="span12">
+					<div data-bind="if: hasAward ">
+						<h1>Reward for Contribution</h1>
+						<p>To be eligible for survey reward or track the status of the study, please provide additional information:</p>
+					</div>
+					<div data-bind="ifnot: hasAward ">
+						<h1>Track Your Contribution</h1>
+						<p>If you would like to track the status of the study, please provide additional information:</p>
+					</div>
+					<form id="surveyform" >
+					    <div class="control-group">
+					        <div class="controls">
+					        	<input type="text" id="voterEmail" placeholder="Email"/>
+						        <label class="checkbox" for="pleaseContact">Let me know about future studies:<input id="pleaseContact" type="checkbox" checked="checked" /></label>
+					        </div>
+					    </div>
+					</form>
+				</div>
+				<div class="span12">
+					<button class="btn btn-info" id="voteBtn">Submit Answers to Researcher</button>				
+				</div>
+			</div>
+		</section>
+
+		<section id="showCode">
+			<div class="row">
+				<div class="span6">
+					<div class="alert alert-warning">
+        				<!--<a class="close">×</a>-->
+        				<strong>Please use the following code to get credit for the study:</strong> <span id="codeField"></span>
+
+      			</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="thankYou">
+			<div class="row">
+				<div class="span6">
+					<div class="alert alert-info">
+        				<!--<a class="close">×</a>-->
+        				<strong>Thank you!</strong> Your contribution to science has been noted!
+      				</div>
+      				<p>Please consider other <a href="/studies.html">studies</a> you can contribute to.</p>
+				</div>
+			</div>
+		</section>
+
+		<section id="closedStudy">
+			<div class="row">
+				<div class="span6">
+					<div class="alert alert-info">
+        				<!--<a class="close">×</a>-->
+        				<strong>Closed Study!</strong> The researcher has closed this study.
+      				</div>
+      				<p>Please consider other <a href="/studies.html">studies</a> you can contribute to.</p>
+				</div>
+			</div>
+		</section>
+
+
+	</div>
+	<hr/>
+
+    <footer id="footer">
+    	<div class="container">
+			<p class="pull-right"><a href="#top">Back to top</a></p>
+			<div class="links">
+				<span><a href="/about.html">About Us</a></span>
+				<span><a href="/studies.html">Studies</a></span>
+				<span><a href="/grants.html">Research Grants</a></span>
+				<span><a href="/sponsors.html">Be a Sponsor</a></span>
+			</div>
+		</div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Developer research tools.">
+	<title>checkbox.io</title>
+
+	<!--[if lte IE 9]>
+		<script src="/js/html5.js"></script>
+		<script src="/js/ie-fix.js"></script>
+	<![endif]-->
+
+	<link href="styles/font.css" rel="stylesheet">
+	<link href="styles/bootstrap.css" rel="stylesheet">
+	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+	<link href="styles/local.css" rel="stylesheet">
+
+
+
+
+	<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+   <!--<script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/bootstrap-transition.js"></script>
+
+    <script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/bootstrap-carousel.js"></script>
+   -->
+   <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+    	$(document).ready( function() {
+			$('#myCarousel').carousel({interval: 5000});
+		});
+    </script>
+
+
+</head>
+
+<body>
+	<div class="navbar">
+		<div class="navbar-inner">
+			<div class="container">
+				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</a>
+				<a class="brand" href="./"><i class="icon-check-empty icon-pint"></i> checkbox.io</a>
+				<div class="nav-collapse collapse" id="main-menu">
+					<ul class="nav" id="main-menu-left">
+						<li><a href="developers.html">Developers</a></li>
+						<li><a href="researchers.html">Researchers</a></li>
+						<li><a href="studies.html">Studies</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+
+		<section id="intro">
+			<div class="row">
+				<div class="span4">
+					<!--<img src="http://geteco.com/img/be-heard.png" width="64" height="64" />-->
+					<i class="icon-bullhorn icon-4"></i>					
+					<h3>Developers</h3>
+					<p>Be heard, get rewarded.</p>
+					<p>Study participants are eligible for prizes such as Amazon giftcards, BrowserStack memberships, Microsoft Surface RT, Starbucks gift cards, and <a href="swag.html">more</a>.</p>
+				</div>
+				<div class="span4">
+					<i class="icon-cloud icon-4"></i>					
+					<h3>Researchers</h3>
+					<p>Host experiments, get results.</p>
+					<p>Studies can be run in a <a href="https://www.linode.com/">linode instance</a> for the lifetime of the study or co-host a node.js service.  Studies, such as surveys can be authored in markdown, and results distributed in .json.</p>
+				</div>
+				<div class="span4">
+					<i class="icon-beaker icon-4"></i>
+					<h3>Open science</h3>
+					<p>See data and results.</p>
+					<p>We are dedicated to sharing and <a href="http://blog.ninlabs.com/2013/03/api-documentation">disseminating science results</a>.  Participants will be able to see graphs, papers, and blog posts related to research they had participated in.</p>
+				</div>
+			</div>
+		</section>
+	</div>
+
+	<section id="long">
+		<div class="container">
+			<div class="row">
+
+				<div class="span12">
+					<p><i class="icon-check-empty icon-1"></i> checkbox.io is a step toward connecting researchers and developers. It is not unlike how psychology departments use a pool of experiments and participants where students can pick studies and earn class credits.</p>
+				</div>
+			</div>
+
+			<div class="row">
+
+				<div class="span4">
+					<h4>Host Studies</h4>
+					<img src="/media/study.invited.png" />
+				</div>
+
+				<div class="span4">
+					<h4>Easy surveys</h4>
+					<img src="/media/markdown.tables.png" />
+				</div>
+
+				<div class="span4">
+					<h4>Include code snippets</h4>
+					<img src="/media/markdown.code.png" />
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+
+	<div class="container">
+	<section id="swag-slide">
+		<div class="row">
+			<div class="sponsors span6">
+				<h2>Rewards</h2>
+				<p><a href="swag.html">Rewards</a> are made possible by our sponsors.</p>
+				<div>
+					<a href="http://www.modern.ie/en-us"><span class="ie-logo"></span></a>
+					<a href="http://blog.ninlabs.com"><span class="ninlabs-logo"></span></a>
+				</div>
+			</div>			
+			<div id="myCarousel" class="carousel slide span6">
+			  <ol class="carousel-indicators">
+			    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+			    <li data-target="#myCarousel" data-slide-to="1"></li>
+			    <li data-target="#myCarousel" data-slide-to="2"></li>
+			  </ol>
+			  <!-- Carousel items -->
+			  <div class="carousel-inner">
+
+			    <div class="active item">
+			    	<img src="media/ie-swag.jpg"></img>
+		            <div class="carousel-caption">
+		                <h4>Windows Surface RT + Starbucks</h4>
+		                <p>IE has sponsored a Windows Surface RT and several Starbucks giftcards.</p>
+		            </div>
+			    </div>
+			    <div class="item">
+			    	<img src="media/BrowserStack.png"></img>
+		            <div class="carousel-caption">
+		                <h4>1 yr Browser Stack membership</h4>
+		                <p>Need to test web apps?  IE has sponsored 12 BrowserStack 1 year VIP tokens. These have a retail value of around $205 each.</p>
+		            </div>	    
+			    </div>
+			    <div class="item">
+			    	<img src="media/amazongc-reg.jpg"></img>
+		            <div class="carousel-caption">
+		                <h4>Amazon Giftcards</h4>
+		                <p><a href="blog.ninlabs.com">ninlabs research</a> has sponsored amazon gift cards for randomly selected participants in certain studies, and participants of multiple studies.</p>
+		            </div>
+			    </div>
+			  </div>
+			  <!-- Carousel nav -->
+			  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+			  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+			</div>
+
+		</div>
+	</section>
+	</div>
+	<hr/>
+
+    <footer id="footer">
+    	<div class="container">
+			<p class="pull-right"><a href="#top">Back to top</a></p>
+			<div class="links">
+				<span><a href="/about.html">About Us</a></span>
+				<span><a href="/studies.html">Studies</a></span>
+				<span><a href="/grants.html">Research Grants</a></span>
+				<span><a href="/sponsors.html">Be a Sponsor</a></span>
+			</div>
+		</div>
+    </footer>
+
+</body>
+</html>
