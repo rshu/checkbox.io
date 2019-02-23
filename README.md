@@ -210,7 +210,7 @@ connected!
 cd /etc/nginx
 ```
 
-Modify file nginx.conf and ./sites-available/default by replacing with file from folder ./local-conf/
+* Modify file nginx.conf and ./sites-available/default by replacing with files from folder ./local-conf/.
 
 * Restart nginx
 
