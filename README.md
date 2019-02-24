@@ -1,14 +1,12 @@
 # checkbox.io
 
-Set up checkbox.io
-
-ubuntu 16.04
+Set up checkbox.io in ubuntu 16.04
 
 ```
 sudo apt-get update && sudo apt-get upgrade
 ```
 
-Install Nginx
+### Install Nginx
 
 ```
 sudo apt-get install nginx
@@ -53,7 +51,7 @@ sudo ufw allow 'Nginx HTTP'
 sudo ufw allow 3002
 sudo ufw allow 27017
 ```
-check Firewall status again
+* check Firewall status again
 
 ```
 vagrant@ubuntu-xenial:~/checkbox.io$ sudo ufw status
@@ -73,7 +71,7 @@ Nginx HTTP (v6)            ALLOW       Anywhere (v6)
 27017 (v6)                 ALLOW       Anywhere (v6)  
 ```
 
-Install MongoDB
+### Install MongoDB
 
 ```
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
@@ -138,7 +136,9 @@ mongo --port 27017 -u "myUserAdmin" -p "abc123" \
   --authenticationDatabase "admin"
 ```
 
-* Set up environment variables, and put the following setting at the end of this file
+### Set up environment variables
+
+* Put the following setting at the end of file ~/.bashrc
 
 ```
 vim ~/.bashrc
@@ -162,7 +162,7 @@ source ~/.bashrc
 ```
 
 
-Install Node.js and npm
+### Install Node.js and npm
 
 ```
 curl -sL https://deb.nodesource.com/setup_10.x | sudo bash -
@@ -170,14 +170,14 @@ sudo apt-get install nodejs
 sudo apt-get install npm
 ```
 
-Check node.js version v10.15.1, npm version 6.4.1
+* Check node.js version v10.15.1, npm version 6.4.1
 
 ```
 nodejs -v
 npm -v
 ```
 
-Go to folder 
+* Go to folder 
 
 ```
 cd /home/vagrant/checkbox.io/server-side/site
@@ -189,7 +189,7 @@ cd /home/vagrant/checkbox.io/server-side/site
 npm install
 ```
 
-Run 
+* Run the server script. In the mocha test, we do not need to execute this step, since we add server start and server close in the test case. Otherwise, the port 3002 is used, which causes issue. 
 
 ```
 vagrant@ubuntu-xenial:~/checkbox.io/server-side/site$ node server.js 
@@ -210,7 +210,7 @@ connected!
 cd /etc/nginx
 ```
 
-* Modify file nginx.conf and ./sites-available/default by replacing with files from folder ./local-conf/.
+* Modify file **nginx.conf** and **./sites-available/default** by replacing with files from folder ./local-conf/.
 
 * Restart nginx
 
@@ -226,7 +226,7 @@ node server.js
 
 * Open browser http://192.168.33.250:80, and check http://192.168.33.250/api/study/vote/status, should see the results
 
-Mocha test
+### Mocha test
 
 * Run the example test in /home/vagrant/checkbox.io/server-side/site
 
@@ -254,3 +254,96 @@ Example app listening at http://:::9001
 
   2 passing (32ms)
 ```
+
+### Setup post-receive hooks in git
+
+**post-receive**: This hook will run on a remote repository after a push has successfully been received and processed. This hook can be used for notifications or trigger other processes, such as a build.
+
+We now try to demo a remote repository that locates on the same host with local repository.
+
+* Create two folder
+
+```
+mkdir ~/deploy/production.git
+mkdir ~/deploy/production-www
+```
+
+* Go into folder ~/deploy/production.git, run
+
+```
+git init --bare
+```
+
+The production.git folder is initialized as follows:
+
+```
+vagrant@ubuntu-xenial:~/deploy/production.git$ ls
+branches  config  description  HEAD  hooks  info  objects  refs
+```
+
+* Go into folder ./hooks
+
+```
+cd hooks/
+touch post-receive
+```
+
+Write into ./hooks/post-receive
+
+```
+#!/bin/sh
+
+echo "Pushed to production!"
+```
+
+* Make the post-receive script executable
+
+```
+chmod +x post-recieve
+```
+
+* Suppose our local repository locates at /home/vagrant/checkbox.io, go into folder
+
+```
+cd /home/vagrant/checkbox.io
+```
+
+* Check current remote repository we have set. By default, we only have the origin remote repository.
+
+```
+vagrant@ubuntu-xenial:~/checkbox.io$ git remote -v
+origin	https://github.com/rshu/checkbox.io.git (fetch)
+origin	https://github.com/rshu/checkbox.io.git (push)
+```
+
+* Let's add a new remote repository call prod, and specify the url of the remote repository. In our case, since they are located on the same host, we just need the path of remote repository.
+
+```
+ git remote add prod ../deploy/production.git/
+```
+
+* Check remote repository again
+
+```
+vagrant@ubuntu-xenial:~/checkbox.io$ git remote -v
+origin	https://github.com/rshu/checkbox.io.git (fetch)
+origin	https://github.com/rshu/checkbox.io.git (push)
+prod	../deploy/production.git/ (fetch)
+prod	../deploy/production.git/ (push)
+```
+
+* We would like trigger the post-receive hook by push to prod repository
+
+```
+vagrant@ubuntu-xenial:~/checkbox.io$ git push prod master 
+Counting objects: 8884, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (8310/8310), done.
+Writing objects: 100% (8884/8884), 11.93 MiB | 9.93 MiB/s, done.
+Total 8884 (delta 1872), reused 0 (delta 0)
+remote: Pushed to production!
+To ../deploy/production.git/
+ * [new branch]      master -> master
+```
+
+The message "Pushed to production!" is shown after pushing.
