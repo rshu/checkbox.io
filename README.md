@@ -348,3 +348,5 @@ To ../deploy/production.git/
 ```
 
 The message "Pushed to production!" is shown after pushing.
+
+Refer to [Git Basics - Working with Remotes](https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes) and [How To Use Git Hooks To Automate Development and Deployment Tasks](https://www.digitalocean.com/community/tutorials/how-to-use-git-hooks-to-automate-development-and-deployment-tasks) for more about git post-receive hook.
