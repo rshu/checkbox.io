@@ -261,14 +261,14 @@ Example app listening at http://:::9001
 
 We now try to demo a remote repository that locates on the same host with local repository.
 
-* Create two folder
+* Create two folders
 
 ```
 mkdir ~/deploy/production.git
 mkdir ~/deploy/production-www
 ```
 
-* Go into folder ~/deploy/production.git, run
+* Go into folder ~/deploy/production.git, and then run
 
 ```
 git init --bare
