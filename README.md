@@ -293,6 +293,7 @@ Write into ./hooks/post-receive
 ```
 #!/bin/sh
 
+GIT_WORK_TREE=../production-www/ git checkout -f
 echo "Pushed to production!"
 ```
 
