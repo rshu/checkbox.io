@@ -187,6 +187,7 @@ cd /home/vagrant/checkbox.io/server-side/site
 
 ```
 npm install
+sudo npm install -g pm2
 ```
 
 * Run the server script. In the mocha test, we do not need to execute this step, since we add server start and server close in the test case. Otherwise, the port 3002 is used, which causes issue. 
