@@ -8,4 +8,4 @@
         url: https://github.com/rshu/iTrust.git
    builders:
       - shell: 'mvn -f pom-data.xml process-test-classes'
-      - shell: 'mvn clean test verify checkstyle:checkstyle'
+      - shell: 'mvn clean test verify checkstyle:checkstyle -Djetty.port=8888'
