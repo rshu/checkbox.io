@@ -351,3 +351,31 @@ To ../deploy/production.git/
 The message "Pushed to production!" is shown after pushing.
 
 Refer to [Git Basics - Working with Remotes](https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes) and [How To Use Git Hooks To Automate Development and Deployment Tasks](https://www.digitalocean.com/community/tutorials/how-to-use-git-hooks-to-automate-development-and-deployment-tasks) for more about git post-receive hook.
+
+### Jenkins job builder
+
+* To install jenkins-job-builder
+
+```
+pip install --user jenkins-job-builder
+```
+
+Do not use 
+
+```
+sudo apt-get install jenkins-job-builder
+```
+
+* Set up a config file in /etc/jenkins_jobs/jenkins_jobs.ini
+
+```
+vim /etc/jenkins_jobs/jenkins_jobs.ini
+```
+
+* Create jobs in folder jobs
+
+* Run the jobs
+
+```
+jenkins-jobs update jobs/
+```
