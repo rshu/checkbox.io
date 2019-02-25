@@ -1,0 +1,10 @@
+- job:
+   name: checkbox-devops
+   description: 'Build checkbox application'
+   project-type: freestyle
+   scm:
+    - git:
+        skip-tag: true
+        url: https://github.com/rshu/checkbox.io.git
+   builders:
+      - shell: 'cd ./server-side/site && npm test'

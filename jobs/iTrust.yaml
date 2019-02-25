@@ -1,0 +1,11 @@
+- job:
+   name: iTrust-devops
+   description: 'Build iTrust application'
+   project-type: freestyle
+   scm:
+    - git:
+        skip-tag: true
+        url: https://github.com/rshu/iTrust.git
+   builders:
+      - shell: 'mvn -f pom-data.xml process-test-classes'
+      - shell: 'mvn clean test verify checkstyle:checkstyle'
