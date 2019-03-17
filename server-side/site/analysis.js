@@ -23,7 +23,7 @@ function main()
 
 	for (var i = 0; i < file_list.length; i++){
   		var file = file_list[i];
-  		console.log("Handling file: ", file);
+  		console.log("Analyzingng file", file);
   		var builders = complexity(file);
   		all_builders[file] = builders;
   	}
@@ -91,54 +91,55 @@ var walkSync = function(dir, filelist) {
 
 function written_output(builders) {
 	for (var b in builders) {
-		console.log("- file = ", b);
+		console.log("file: ", b);
 		var builder = builders[b];
 		for (var func in builder) {
 			var s = builder[func];
-			console.log("--func = ", func);
-			console.log("----lines of code = ", s.number_of_lines);
-			console.log("----Have Tenary expression = ", s.HaveTenary);
-			console.log("----Max condition = ", s.MaxConditions)
+			console.log("func: ", func);
+			console.log("lines of code: ", s.number_of_lines);
+			console.log("Have Tenary expression: ", s.HaveTenary);
+			console.log("Max condition: ", s.MaxConditions)
+			console.log("");
 		}
 	}
 }
 
 function output_report_file(builders) {
-	var xw = xmlbuilder.create('analysis');
+	var xb = xmlbuilder.create('analysis');
 	for (var b in builders) {
-		xw = xw.ele('file');
-		xw = xw.ele('name');
-		xw = xw.txt(b);
-		xw = xw.up();
+		xb = xb.ele('file');
+		xb = xb.ele('name');
+		xb = xb.txt(b);
+		xb = xb.up();
 		var builder = builders[b];
 		for (var func in builder) {
 			var s = builder[func];
 			// s.report();
-			xw = xw.ele('function');
+			xb = xb.ele('function');
 
-			xw = xw.ele('name');
-			xw = xw.txt(func);
-			xw = xw.up();
+			xb = xb.ele('name');
+			xb = xb.txt(func);
+			xb = xb.up();
 
-			xw = xw.ele('lines_of_code');
-		  xw = xw.txt(s.number_of_lines);
-			xw = xw.up();
+			xb = xb.ele('lines_of_code');
+		  xb = xb.txt(s.number_of_lines);
+			xb = xb.up();
 			
-			xw = xw.ele('have_tenary_expression');
-			xw = xw.txt(s.HaveTenary);
-			xw = xw.up();
+			xb = xb.ele('have_tenary_expression');
+			xb = xb.txt(s.HaveTenary);
+			xb = xb.up();
 
-			xw = xw.ele('max_condition');
-			xw = xw.txt(s.MaxConditions);
-			xw = xw.up();
+			xb = xb.ele('max_condition');
+			xb = xb.txt(s.MaxConditions);
+			xb = xb.up();
 
-		  xw = xw.up();
+		  xb = xb.up();
 		}
-		xw = xw.up();	
+		xb = xb.up();	
 	}
-	xw = xw.end({ pretty: true });
+	xb = xb.end({ pretty: true });
 
-	return xw;
+	return xb;
 }
 
 // Represent a reusable "class" following the Builder pattern.

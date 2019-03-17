@@ -1,0 +1,1005 @@
+<?xml version="1.0"?>
+<analysis>
+  <file>
+    <name>./routes/admin.js</name>
+    <function>
+      <name>anon function @20</name>
+      <lines_of_code>5</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @26</name>
+      <lines_of_code>9</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @29</name>
+      <lines_of_code>5</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @30</name>
+      <lines_of_code>3</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @36</name>
+      <lines_of_code>10</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @38</name>
+      <lines_of_code>7</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @39</name>
+      <lines_of_code>5</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @47</name>
+      <lines_of_code>10</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @49</name>
+      <lines_of_code>7</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @50</name>
+      <lines_of_code>5</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @58</name>
+      <lines_of_code>74</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>4</max_condition>
+    </function>
+    <function>
+      <name>anon function @63</name>
+      <lines_of_code>68</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>4</max_condition>
+    </function>
+    <function>
+      <name>anon function @64</name>
+      <lines_of_code>66</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>4</max_condition>
+    </function>
+    <function>
+      <name>anon function @68</name>
+      <lines_of_code>15</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @70</name>
+      <lines_of_code>12</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @86</name>
+      <lines_of_code>38</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>2</max_condition>
+    </function>
+    <function>
+      <name>anon function @87</name>
+      <lines_of_code>36</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>2</max_condition>
+    </function>
+    <function>
+      <name>anon function @89</name>
+      <lines_of_code>7</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>1</max_condition>
+    </function>
+    <function>
+      <name>anon function @95</name>
+      <lines_of_code>1</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @100</name>
+      <lines_of_code>21</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>1</max_condition>
+    </function>
+    <function>
+      <name>anon function @109</name>
+      <lines_of_code>4</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @115</name>
+      <lines_of_code>5</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>1</max_condition>
+    </function>
+    <function>
+      <name>anon function @135</name>
+      <lines_of_code>46</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>2</max_condition>
+    </function>
+    <function>
+      <name>anon function @140</name>
+      <lines_of_code>40</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>2</max_condition>
+    </function>
+    <function>
+      <name>anon function @141</name>
+      <lines_of_code>38</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>2</max_condition>
+    </function>
+    <function>
+      <name>anon function @145</name>
+      <lines_of_code>32</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>1</max_condition>
+    </function>
+    <function>
+      <name>anon function @146</name>
+      <lines_of_code>30</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>1</max_condition>
+    </function>
+    <function>
+      <name>anon function @150</name>
+      <lines_of_code>3</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @152</name>
+      <lines_of_code>11</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @183</name>
+      <lines_of_code>54</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>6</max_condition>
+    </function>
+    <function>
+      <name>anon function @222</name>
+      <lines_of_code>12</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>1</max_condition>
+    </function>
+  </file>
+  <file>
+    <name>./routes/create.js</name>
+    <function>
+      <name>anon function @13</name>
+      <lines_of_code>5</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @27</name>
+      <lines_of_code>43</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>3</max_condition>
+    </function>
+    <function>
+      <name>anon function @38</name>
+      <lines_of_code>31</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>2</max_condition>
+    </function>
+    <function>
+      <name>anon function @40</name>
+      <lines_of_code>28</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>2</max_condition>
+    </function>
+    <function>
+      <name>anon function @45</name>
+      <lines_of_code>21</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>1</max_condition>
+    </function>
+    <function>
+      <name>anon function @59</name>
+      <lines_of_code>5</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>basicCreate</name>
+      <lines_of_code>30</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>2</max_condition>
+    </function>
+    <function>
+      <name>anon function @76</name>
+      <lines_of_code>24</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>2</max_condition>
+    </function>
+    <function>
+      <name>anon function @78</name>
+      <lines_of_code>21</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>2</max_condition>
+    </function>
+    <function>
+      <name>sendStudyEmail</name>
+      <lines_of_code>8</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @106</name>
+      <lines_of_code>4</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+  </file>
+  <file>
+    <name>./routes/csv.js</name>
+    <function>
+      <name>formatJsonAsCSV</name>
+      <lines_of_code>72</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>4</max_condition>
+    </function>
+    <function>
+      <name>sizeOfRow</name>
+      <lines_of_code>48</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>5</max_condition>
+    </function>
+  </file>
+  <file>
+    <name>./routes/designer.js</name>
+    <function>
+      <name>anon function @18</name>
+      <lines_of_code>5</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @24</name>
+      <lines_of_code>11</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @27</name>
+      <lines_of_code>7</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @28</name>
+      <lines_of_code>5</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @36</name>
+      <lines_of_code>9</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @39</name>
+      <lines_of_code>5</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @40</name>
+      <lines_of_code>3</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @46</name>
+      <lines_of_code>9</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @49</name>
+      <lines_of_code>5</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @50</name>
+      <lines_of_code>3</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @56</name>
+      <lines_of_code>7</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @57</name>
+      <lines_of_code>5</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @58</name>
+      <lines_of_code>3</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @64</name>
+      <lines_of_code>56</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>2</max_condition>
+    </function>
+    <function>
+      <name>anon function @66</name>
+      <lines_of_code>52</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>2</max_condition>
+    </function>
+    <function>
+      <name>anon function @68</name>
+      <lines_of_code>49</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>2</max_condition>
+    </function>
+    <function>
+      <name>anon function @71</name>
+      <lines_of_code>44</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>2</max_condition>
+    </function>
+    <function>
+      <name>anon function @78</name>
+      <lines_of_code>36</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>2</max_condition>
+    </function>
+    <function>
+      <name>anon function @124</name>
+      <lines_of_code>12</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @126</name>
+      <lines_of_code>9</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @127</name>
+      <lines_of_code>7</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @138</name>
+      <lines_of_code>12</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @140</name>
+      <lines_of_code>9</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @141</name>
+      <lines_of_code>7</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @151</name>
+      <lines_of_code>46</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>5</max_condition>
+    </function>
+    <function>
+      <name>anon function @189</name>
+      <lines_of_code>5</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @198</name>
+      <lines_of_code>80</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>2</max_condition>
+    </function>
+    <function>
+      <name>anon function @220</name>
+      <lines_of_code>57</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>1</max_condition>
+    </function>
+    <function>
+      <name>anon function @242</name>
+      <lines_of_code>34</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>1</max_condition>
+    </function>
+    <function>
+      <name>anon function @243</name>
+      <lines_of_code>32</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>1</max_condition>
+    </function>
+    <function>
+      <name>anon function @267</name>
+      <lines_of_code>4</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @282</name>
+      <lines_of_code>24</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @301</name>
+      <lines_of_code>3</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @302</name>
+      <lines_of_code>1</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+  </file>
+  <file>
+    <name>./routes/live.js</name>
+    <function>
+      <name>anon function @11</name>
+      <lines_of_code>5</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @17</name>
+      <lines_of_code>9</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @20</name>
+      <lines_of_code>5</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @21</name>
+      <lines_of_code>3</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @27</name>
+      <lines_of_code>9</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @30</name>
+      <lines_of_code>5</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @31</name>
+      <lines_of_code>3</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @37</name>
+      <lines_of_code>7</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @38</name>
+      <lines_of_code>5</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @39</name>
+      <lines_of_code>3</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @45</name>
+      <lines_of_code>10</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @48</name>
+      <lines_of_code>6</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @50</name>
+      <lines_of_code>3</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @57</name>
+      <lines_of_code>31</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>1</max_condition>
+    </function>
+    <function>
+      <name>anon function @62</name>
+      <lines_of_code>25</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>1</max_condition>
+    </function>
+    <function>
+      <name>anon function @63</name>
+      <lines_of_code>23</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>1</max_condition>
+    </function>
+    <function>
+      <name>anon function @67</name>
+      <lines_of_code>13</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @69</name>
+      <lines_of_code>10</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @90</name>
+      <lines_of_code>4</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @95</name>
+      <lines_of_code>28</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>1</max_condition>
+    </function>
+    <function>
+      <name>anon function @102</name>
+      <lines_of_code>20</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>1</max_condition>
+    </function>
+    <function>
+      <name>anon function @110</name>
+      <lines_of_code>11</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>1</max_condition>
+    </function>
+    <function>
+      <name>anon function @124</name>
+      <lines_of_code>50</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>2</max_condition>
+    </function>
+    <function>
+      <name>anon function @129</name>
+      <lines_of_code>44</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>2</max_condition>
+    </function>
+    <function>
+      <name>anon function @130</name>
+      <lines_of_code>42</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>2</max_condition>
+    </function>
+    <function>
+      <name>anon function @138</name>
+      <lines_of_code>32</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>1</max_condition>
+    </function>
+    <function>
+      <name>anon function @139</name>
+      <lines_of_code>30</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>1</max_condition>
+    </function>
+    <function>
+      <name>anon function @143</name>
+      <lines_of_code>3</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @145</name>
+      <lines_of_code>11</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @175</name>
+      <lines_of_code>34</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>1</max_condition>
+    </function>
+    <function>
+      <name>anon function @198</name>
+      <lines_of_code>10</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>1</max_condition>
+    </function>
+    <function>
+      <name>anon function @199</name>
+      <lines_of_code>8</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>1</max_condition>
+    </function>
+    <function>
+      <name>anon function @213</name>
+      <lines_of_code>33</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @241</name>
+      <lines_of_code>3</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @242</name>
+      <lines_of_code>1</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+  </file>
+  <file>
+    <name>./routes/study.js</name>
+    <function>
+      <name>anon function @13</name>
+      <lines_of_code>5</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @19</name>
+      <lines_of_code>80</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>3</max_condition>
+    </function>
+    <function>
+      <name>anon function @21</name>
+      <lines_of_code>77</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>3</max_condition>
+    </function>
+    <function>
+      <name>anon function @23</name>
+      <lines_of_code>74</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>3</max_condition>
+    </function>
+    <function>
+      <name>anon function @26</name>
+      <lines_of_code>69</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>3</max_condition>
+    </function>
+    <function>
+      <name>anon function @33</name>
+      <lines_of_code>61</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>3</max_condition>
+    </function>
+    <function>
+      <name>anon function @84</name>
+      <lines_of_code>7</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @100</name>
+      <lines_of_code>13</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @103</name>
+      <lines_of_code>9</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @104</name>
+      <lines_of_code>7</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @114</name>
+      <lines_of_code>9</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @117</name>
+      <lines_of_code>5</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @118</name>
+      <lines_of_code>3</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @125</name>
+      <lines_of_code>27</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>1</max_condition>
+    </function>
+    <function>
+      <name>anon function @132</name>
+      <lines_of_code>19</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>1</max_condition>
+    </function>
+    <function>
+      <name>anon function @139</name>
+      <lines_of_code>11</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>1</max_condition>
+    </function>
+    <function>
+      <name>anon function @153</name>
+      <lines_of_code>34</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>1</max_condition>
+    </function>
+    <function>
+      <name>anon function @175</name>
+      <lines_of_code>5</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>commonSubmit</name>
+      <lines_of_code>16</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>1</max_condition>
+    </function>
+    <function>
+      <name>anon function @193</name>
+      <lines_of_code>10</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>1</max_condition>
+    </function>
+    <function>
+      <name>anon function @194</name>
+      <lines_of_code>8</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>1</max_condition>
+    </function>
+    <function>
+      <name>anon function @205</name>
+      <lines_of_code>4</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+  </file>
+  <file>
+    <name>./routes/studyModel.js</name>
+    <function>
+      <name>surrogateCtor</name>
+      <lines_of_code>1</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>extend</name>
+      <lines_of_code>8</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @15</name>
+      <lines_of_code>20</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @36</name>
+      <lines_of_code>31</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @46</name>
+      <lines_of_code>4</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @52</name>
+      <lines_of_code>14</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @73</name>
+      <lines_of_code>31</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @83</name>
+      <lines_of_code>4</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @89</name>
+      <lines_of_code>14</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+  </file>
+  <file>
+    <name>./routes/upload.js</name>
+    <function>
+      <name>anon function @18</name>
+      <lines_of_code>5</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @24</name>
+      <lines_of_code>9</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @28</name>
+      <lines_of_code>4</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @34</name>
+      <lines_of_code>15</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @38</name>
+      <lines_of_code>3</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @44</name>
+      <lines_of_code>4</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>readFileStream</name>
+      <lines_of_code>32</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @55</name>
+      <lines_of_code>26</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @60</name>
+      <lines_of_code>5</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @66</name>
+      <lines_of_code>3</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @70</name>
+      <lines_of_code>3</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @74</name>
+      <lines_of_code>4</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>readFile</name>
+      <lines_of_code>9</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>anon function @86</name>
+      <lines_of_code>5</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>0</max_condition>
+    </function>
+    <function>
+      <name>uploadFile</name>
+      <lines_of_code>32</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>1</max_condition>
+    </function>
+    <function>
+      <name>anon function @103</name>
+      <lines_of_code>20</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>1</max_condition>
+    </function>
+    <function>
+      <name>anon function @105</name>
+      <lines_of_code>17</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>1</max_condition>
+    </function>
+    <function>
+      <name>anon function @109</name>
+      <lines_of_code>11</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>1</max_condition>
+    </function>
+    <function>
+      <name>anon function @112</name>
+      <lines_of_code>7</lines_of_code>
+      <have_tenary_expression>false</have_tenary_expression>
+      <max_condition>1</max_condition>
+    </function>
+  </file>
+</analysis>
