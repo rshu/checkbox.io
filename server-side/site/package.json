@@ -22,7 +22,8 @@
     "request": "^2.88.0",
     "shelljs": "^0.8.3",
     "underscore": "^1.8.3",
-    "validator": "^6.2.1"
+    "validator": "^6.2.1",
+    "xmlbuilder": "^11.0.0"
   },
   "scripts": {
     "test": "mocha --exit"
