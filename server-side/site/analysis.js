@@ -10,7 +10,7 @@ function main()
 	var dir;
 	if( args.length == 0 )
 	{
-		dir = '/Users/rshu/Documents/DevOps/checkbox.io/server-side/site/test';
+		dir = './routes';
 	}
 	else {
 		dir = args[0]
@@ -59,10 +59,10 @@ function CheckMetricsThreshold(builders) {
 				console.log("Too many number of conditions in ", func, "function in file =", b);
 				return true
 			}
-			// else if (s.HaveTenary === true) {
-			// 	console.log("Tenary expression found in ", func, "function in file = ", b);
-			// 	return true
-			// }
+			else if (s.HaveTenary === true) {
+				console.log("Tenary expression found in ", func, "function in file = ", b);
+				return true
+			}
 		}
 	}
 	return false;
