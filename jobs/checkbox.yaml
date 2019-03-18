@@ -7,4 +7,4 @@
         skip-tag: true
         url: https://github.com/rshu/checkbox.io.git
    builders:
-      - shell: 'cd ./server-side/site && npm test'
+      - shell: 'cd ./server-side/site && npm test && node analysis.js'
