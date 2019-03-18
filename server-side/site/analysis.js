@@ -52,7 +52,7 @@ function CheckMetricsThreshold(builders) {
 		for (var func in builder) {
 			var s = builder[func]
 
-			if (s.number_of_lines > 100){
+			if (s.number_of_lines > 60){
 				console.log("Too many number of lines in ", func, "function in file = ", b);
 				return true
 			} else if (s.MaxConditions > 10) {
