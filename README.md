@@ -213,6 +213,8 @@ cd /etc/nginx
 
 * Modify file **nginx.conf** and **./sites-available/default** by replacing with files from folder ./local-conf/.
 
+Note: change the "vagrant" to "ubuntu" in default if in AWS
+
 * Restart nginx
 
 ```
