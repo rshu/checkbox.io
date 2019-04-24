@@ -213,6 +213,11 @@ cd /etc/nginx
 
 * Modify file **nginx.conf** and **./sites-available/default** by replacing with files from folder ./local-conf/.
 
+```
+sudo cp /home/ubuntu/checkbox.io/local-conf/nginx.conf /etc/nginx/
+sudo cp /home/ubuntu/checkbox.io/local-conf/default /etc/nginx/sites-available/
+```
+
 Note: change the "vagrant" to "ubuntu" in default if in AWS
 
 * Restart nginx
