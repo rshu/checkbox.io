@@ -6,16 +6,25 @@ job "Checkbox_Job" {
     count = 3
 
     task "webservice" {
-      driver = "exec"
+      driver = "docker"
 
-      resources {
-        memory = 512
-      }
+ #     resources {
+ #       memory = 512
+ #     }
 
       config {
-        command = "/bin/bash"
-        args    = ["/home/ubuntu/startServer.sh"]
+	image = "tamitito/marqdown"
+	#network_mode = "host"
       }
+
+      resources {
+	network {
+	  port "marqdown" {
+	     static = 9001
+	  }
+	}
+      }
+
     }
 
   }
