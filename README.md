@@ -386,3 +386,153 @@ vim /etc/jenkins_jobs/jenkins_jobs.ini
 ```
 jenkins-jobs update jobs/
 ```
+
+
+### Install Nomad Cluster
+
+
+* Install packages and dependencies
+
+```
+sudo apt install rpcbind
+```
+
+* Allow ports in server and clients
+
+```
+sudo ufw allow 4647
+```
+
+* Download the source code
+
+```
+sudo apt-get install unzip
+wget https://releases.hashicorp.com/nomad/0.9.0/nomad_0.9.0_linux_amd64.zip
+unzip nomad_0.9.0_linux_amd64.zip
+```
+
+* Move the nomad binary to /usr/local/bin/
+
+```
+sudo chown root:root nomad
+sudo mv nomad /usr/local/bin/
+nomad version
+```
+
+* The nomad command features opt-in autocompletion for flags, subcommands, and arguments (where supported). Enable autocompletion
+
+```
+nomad -autocomplete-install
+complete -C /usr/local/bin/nomad nomad
+```
+
+* Create a data directory for Nomad
+
+```
+sudo mkdir --parents /opt/nomad
+```
+
+* Configure Nomad for both server and clients
+
+```
+sudo mkdir --parents /etc/nomad.d
+sudo chmod 700 /etc/nomad.d
+sudo touch /etc/nomad.d/nomad.hcl
+```
+
+* Create configuration file in server
+
+```
+sudo touch /etc/nomad.d/server.hcl
+```
+
+* Create configuration file in clients
+
+```
+sudo touch /etc/nomad.d/client.hcl
+```
+
+* Start nomad server
+
+```
+nomad agent -config /etc/nomad.d/server.hcl
+```
+
+* Start nomad clients
+
+```
+nomad agent -config /etc/nomad.d/client.hcl
+```
+
+
+### Install Docker on ubuntu 16.04
+
+* Update package index
+
+```
+sudo apt-get update
+```
+
+* Install packages to allow apt to use a repository over HTTPS
+
+```
+sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg-agent \
+    software-properties-common
+```
+
+* Add Docker’s official GPG key
+
+```
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+```
+
+* Verify the kery with fingerprint
+
+```
+sudo apt-key fingerprint 0EBFCD88
+```
+
+* Add release repository
+
+```
+sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+```
+
+* Update the apt package index
+
+```
+sudo apt-get update
+```
+
+* Install Docker CE
+
+```
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+```
+
+
+### Install Docker Compose
+
+* Check the current release
+
+```
+sudo curl -L https://github.com/docker/compose/releases/download/1.18.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+```
+* Set the permission
+
+```
+sudo chmod +x /usr/local/bin/docker-compose
+```
+
+* Verify docker-compose version
+
+```
+sudo docker-compose --version
+```
