@@ -537,9 +537,11 @@ sudo chmod +x /usr/local/bin/docker-compose
 sudo docker-compose --version
 ```
 
-### Special Component - Monitoring/Analysis
+### Infrastructure Upgrade
 
-In this part, use docker-compose to manage tools to monitoring system-level metrics of docker containers and the host. We have created and pushed Docker images into Docker Hub, including checkbox.io and markdown microservice. 
+In this part, we use the Nomad cluster upgrade our infrastructure, i.e., we run three markdown microservices in Docker containers in each Nomad client, and run checkbox.io in Nomad server. The checkbox.io will use our mircoservice instead of local markdown render API.
+
+We have created and pushed Docker images into Docker Hub, including checkbox.io and markdown microservice. 
 
 Docker Hub:
 
@@ -549,6 +551,49 @@ Docker Hub:
 
 (Note: tamitito is Docker account of Rui Shu)
 
+Nomad server creates job to Nomad client:
+
+* Run markdown job
+
+```
+nomad job run checkbox.nomad
+```
+
+* Check job status
+
+```
+nomad status Checkbox.Job
+```
+
+* If we have updated the job
+
+```
+nomad job plan checkbox.nomad
+```
+
+* Run the modified job again with index
+
+```
+nomad job run -check-index 512 checkbox.nomad
+```
+
+* Stop a job
+
+```
+nomad job stop Checkbox.Job
+```
+
+Since we have commited and run the job in Nomad clients, we check whether our markdown service is available or not. We use postman:
+
+![alt text](https://github.com/rshu/checkbox.io/blob/master/postman.png)
+
+This shows that our microservices are available.
+
+
+### Special Component - Monitoring/Analysis
+
+In this part, use docker-compose to manage tools to monitoring system-level metrics of docker containers and the host. 
+
 
 Major Tools:
 
@@ -557,6 +602,12 @@ Major Tools:
 * Prometheus (metrics database)
 * Grafana (Visualization tool)
 
+
+If we start checkbox.io in Docker container, run
+
+```
+sudo docker run -it -p 80:80 --env MONGO_PORT=27017 --env MONGO_IP=127.0.0.1 --env MONGO_USER=myUserAdmin --env MONGO_PASSWORD=abc123 --env MAIL_USER=csc519s19.rshu --env MAIL_SSWORD=devops2019! --env MAIL_SMTP=smtp.gmail.com --env APP_PORT=3002 --network host tamitito/checkbox
+```
 
 Steps:
 
