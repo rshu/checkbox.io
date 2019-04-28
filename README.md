@@ -551,6 +551,13 @@ Docker Hub:
 
 (Note: tamitito is Docker account of Rui Shu)
 
+* Check nomad server and client status:
+
+```
+nomad server members
+nomad node status
+```
+
 Nomad server creates job to Nomad client:
 
 * Run markdown job
