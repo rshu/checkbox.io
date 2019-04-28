@@ -19,16 +19,14 @@ app.get('/', function(req, res)
 {
 	var sample_data = fs.readFileSync('index.html');
 	var text = marqdown.testing(sample_data);
-    res.send({preview: text});
+        res.send({preview: text});
 });
 
 app.post('/render', function(req, res) 
 {
 	// Use try block and return error
-    var text = marqdown.render( req.body.markdown );
+        var text = marqdown.render( req.body.markdown );
 	res.send({preview: text});
-	console.log("\n\nProcessing over\n");
-	console.log(text);
 	// res.send(req.body.markdown);
 });
 
