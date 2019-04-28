@@ -536,3 +536,31 @@ sudo chmod +x /usr/local/bin/docker-compose
 ```
 sudo docker-compose --version
 ```
+
+### Special Component - Monitoring/Analysis
+
+Major Tools:
+
+* cAdvisor (container metrics collector)
+* NodeExporter (host metric collector)
+* Prometheus (metrics database)
+* Grafana (Visualization tool)
+
+
+* Start monitoring services
+
+```
+ADMIN_USER=admin ADMIN_PASSWORD=admin sudo docker-compose up -d
+```
+
+* Configure Grafana visualiation
+
+```
+http://34.239.228.117:3000
+Login: admin
+Password: admin
+```
+* Monitering Screenshot
+
+![alt text](https://github.com/rshu/checkbox.io/blob/master/monitoring/Monitoring.png)
+
