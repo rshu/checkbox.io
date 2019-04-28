@@ -545,7 +545,7 @@ Docker Hub:
 
 [checkbox.io](https://cloud.docker.com/u/tamitito/repository/docker/tamitito/checkbox) - The checkbox image
 
-[markdown](https://cloud.docker.com/u/tamitito/repository/docker/tamitito/marqdown) - The markdown microservice
+[markdown](https://cloud.docker.com/u/tamitito/repository/docker/tamitito/marqdown) - The markdown microservice image
 
 (Note: tamitito is Docker account of Rui Shu)
 
