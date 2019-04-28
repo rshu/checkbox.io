@@ -4,7 +4,7 @@ FROM    node:alpine
 COPY    . /marqdown
 
 # Change working directory to app source
-WORKDIR /marqdown
+WORKDIR /markdown
 
 # Expose port
 EXPOSE  9001
