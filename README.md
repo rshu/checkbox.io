@@ -560,7 +560,7 @@ http://34.239.228.117:3000
 Login: admin
 Password: admin
 ```
-* Monitering Screenshot
+* Monitoring Screenshot
 
 ![alt text](https://github.com/rshu/checkbox.io/blob/master/monitoring/Monitoring.png)
 
