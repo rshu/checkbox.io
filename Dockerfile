@@ -1,12 +1,5 @@
 FROM node:9
 
-#RUN apt-get update
-# Basics
-# Basics
-
-#RUN curl -sL https://deb.nodesource.com/setup_9.x | bash -
-#RUN apt-get install -y nodejs
-
 WORKDIR /srv
 COPY server-side/site/package.json /srv
 
