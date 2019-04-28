@@ -539,6 +539,17 @@ sudo docker-compose --version
 
 ### Special Component - Monitoring/Analysis
 
+In this part, use docker-compose to manage tools to monitoring system-level metrics of docker containers and the host. We have created and pushed Docker images into Docker Hub, including checkbox.io and markdown microservice. 
+
+Docker Hub:
+
+[checkbox.io](https://cloud.docker.com/u/tamitito/repository/docker/tamitito/checkbox) - The checkbox image
+
+[markdown](https://cloud.docker.com/u/tamitito/repository/docker/tamitito/marqdown) - The markdown microservice
+
+(Note: tamitito is Docker account of Rui Shu)
+
+
 Major Tools:
 
 * cAdvisor (container metrics collector)
@@ -546,6 +557,8 @@ Major Tools:
 * Prometheus (metrics database)
 * Grafana (Visualization tool)
 
+
+Steps:
 
 * Start monitoring services
 
@@ -563,4 +576,3 @@ Password: admin
 * Monitoring Screenshot
 
 ![alt text](https://github.com/rshu/checkbox.io/blob/master/monitoring/Monitoring.png)
-
