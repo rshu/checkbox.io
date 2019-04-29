@@ -595,6 +595,11 @@ nomad job run -check-index 512 checkbox.nomad
 nomad job stop Checkbox.Job
 ```
 
+Screenshot of Job status:
+
+![alt text](https://github.com/rshu/checkbox.io/blob/master/nomad_job.png)
+
+
 Since we have commited and run the job in Nomad clients, we check whether our markdown service is available or not. We use postman:
 
 ![alt text](https://github.com/rshu/checkbox.io/blob/master/postman.png)
