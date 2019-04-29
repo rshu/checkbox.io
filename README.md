@@ -558,6 +558,11 @@ nomad server members
 nomad node status
 ```
 
+Screenshot:
+
+
+![alt text](https://github.com/rshu/checkbox.io/blob/master/nomad.png)
+
 Nomad server creates job to Nomad client:
 
 * Run markdown job
