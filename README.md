@@ -629,13 +629,13 @@ Major Tools:
 
 **Grafana** is an open source, feature rich metrics dashboard and graph editor for Graphite, Elasticsearch, OpenTSDB, Prometheus and InfluxDB.
 
-If we start checkbox.io in Docker container, run
+If we also start checkbox.io in Docker container, run
 
 ```
 sudo docker run -it -p 80:80 --env MONGO_PORT=27017 --env MONGO_IP=127.0.0.1 --env MONGO_USER=myUserAdmin --env MONGO_PASSWORD=abc123 --env MAIL_USER=csc519s19.rshu --env MAIL_SSWORD=devops2019! --env MAIL_SMTP=smtp.gmail.com --env APP_PORT=3002 --network host tamitito/checkbox
 ```
 
-Steps:
+Steps to monitor:
 
 * Start monitoring services
 
