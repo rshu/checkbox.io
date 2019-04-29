@@ -608,6 +608,13 @@ This shows that our microservices are available.
 
 We have updated the server_callMicroservice.js code. In this case, the checkbox.io will use microservice of the client if the client host is available (i.e., not in shutdown status), instead of using local API. Thus, the service is still available after truning off the nodes.
 
+* To start the service
+
+```
+cd /home/ubuntu/checkbox.io/server-side/site
+node server_callMicroservice.js
+```
+
 
 ### Special Component - Monitoring/Analysis
 
